@@ -52,57 +52,46 @@ Traditional e-commerce returns are broken:
 
 ---
 
-## ⚡ Important Note for Evaluators & Judges
+## ⚡ Important Note for Evaluators & Judges: Sincere Request to Run Locally
 
 > [!IMPORTANT]
-> **No Paid API Key Required**: We deliberately engineered this system to be **100% self-contained, offline-ready, and deterministic**. You do **NOT** need an OpenAI or Anthropic API key to run or test the agent. It uses an embedded contextual NLU parser and a deterministic state machine, ensuring zero hallucinations and zero dependency failures.
+> **Our Condition & Sincere Request to Judges & Evaluators**:
+> Due to cross-origin port forwarding and WebSocket/proxy restrictions in GitHub's browser-based cloud containers (Codespaces), cloud browser sessions encounter networking blocks between isolated container ports.
 >
-> **In-House Mock Store**: Because the competition portal's external mock store was unlisted/unavailable, we architected and bundled our own complete SQLite Mock Store (`data/app.db`) pre-seeded with 55+ orders, real products, and policy tags.
+> We do not have paid cloud hosting infrastructure or commercial API credits. Therefore, we engineered this entire system to be **100% self-contained, offline-ready, deterministic, and effortless to run locally with zero setup friction**.
 >
-> **Clean-Slate Auto-Reset**: Every time you launch localhost or start a fresh browser session, past demo return history automatically resets so evaluators always begin with a fresh testing slate.
+> **We kindly and respectfully request evaluators to test our project locally on your machine.** It takes less than 60 seconds, requires **only Python**, and does **not even require Node.js** because the complete React web application is already pre-compiled and served directly by the backend!
 >
-> **Dynamic Daily Date Roll-Forward (12:00 AM)**: Delivered orders maintain their relative age dynamically. Every day at midnight (12:00 AM), a background scheduler increments delivery dates by +1 day (`delivery_date = delivery_date + 1`), ensuring delivered orders always stay within their active return window regardless of when evaluators test the project.
+> - **Zero Paid API Keys Required**: No OpenAI or Anthropic API key needed. It uses an embedded contextual NLU parser and deterministic state machine (zero hallucinations, zero downtime).
+> - **In-House Mock Store Included**: Pre-seeded SQLite store (`data/app.db`) with 75 orders, real products, and policy tags.
+> - **Clean-Slate Auto-Reset**: Resets past demo return history automatically on each fresh session.
+> - **Dynamic Daily Date Roll-Forward (12:00 AM)**: Every midnight, delivery dates advance by `+1 day` so all return windows remain permanently active.
 
 ---
 
-## 🚀 How to Run the Project (3 Ways for Evaluators)
+## 🚀 How to Run the Project (Recommended for Evaluators)
 
-### 🥇 Method 1: 1-Click Cloud Run via GitHub Codespaces *(No Local Setup)*
+### 🥇 Method 1: Localhost Web UI Run *(Recommended — Takes 60 Seconds & No Node.js Needed!)*
 
-The fastest way to test the project without installing Python, Node.js, or Git on your machine:
+This is the fastest, smoothest way to evaluate our project:
 
-1. Click the **[Open in GitHub Codespaces](https://codespaces.new/codeuix-21/refund1)** button at the top of this repository.
-2. GitHub will boot an isolated cloud container, automatically install all dependencies, and launch both the backend and frontend.
-3. just type in terminal - pip install -r requirements.txt
-                            python main.py --server and the server will be live
-
----
-
-### 🥈 Method 2: Localhost Run (Web Application) — *Recommended*
-
-#### Prerequisites:
-- **Python 3.10+** (tested on 3.12 and 3.14)
-- **Node.js 18+** & npm
-
-#### Step 1: Install Python Dependencies
 ```bash
+# 1. Clone the repository
+git clone https://github.com/codeuix-21/refund1.git
+cd refund1
+
+# 2. Install Python dependencies
 pip install -r requirements.txt
-```
 
-#### Step 2: Start the Backend Server (Terminal 1)
-```bash
+# 3. Launch the complete system (Backend API + Pre-Built React UI)
 python main.py --server
 ```
-- API Server: `http://localhost:8000`
-- Interactive Swagger Docs: `http://localhost:8000/docs`
 
-#### Step 3: Start the Web Frontend (Terminal 2)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-- Open in browser: **`http://localhost:5173`**
+Open your browser at:
+👉 **`http://localhost:8000`**
+
+- **Interactive Swagger API Docs**: `http://localhost:8000/docs`
+- **Zero Node.js Required**: The production React frontend is bundled directly in `frontend/dist` and served immediately on port `8000`.
 
 #### 🎯 What Evaluators Can Test in the Web UI:
 1. **Return Assistant (💬)**: Say *"show my orders"* or *"I want to return my Cotton T-Shirt"*. Select return reason and refund destination.
@@ -114,7 +103,7 @@ npm run dev
 
 ---
 
-### 🥉 Method 3: 1-Command Terminal Chat (CLI Mode)
+### 🥈 Method 2: 1-Command Terminal Chat (CLI Mode) — *Zero Browser Needed*
 
 To chat with the agent directly in your command line without opening a browser:
 
@@ -127,6 +116,36 @@ python main.py
   - `"I want to return my Cotton T-Shirt"`
   - `"yes"`
   - `"track my return"` or `"status of RET-XXXXXX"`
+
+---
+
+### 🥉 Method 3: Full Developer Mode *(With Vite Hot-Reloading)*
+
+If you wish to modify frontend source files with live hot reloading:
+
+```bash
+# Terminal 1: Backend API Server
+python main.py --server
+
+# Terminal 2: Frontend React Dev Server
+cd frontend
+npm install
+npm run dev
+```
+- Open in browser: **`http://localhost:5173`**
+
+---
+
+### ☁️ Method 4: Cloud Run via GitHub Codespaces
+
+If you are evaluating on a machine without Python installed:
+1. Open the repository in **[GitHub Codespaces](https://codespaces.new/codeuix-21/refund1)**.
+2. In the Codespaces terminal, run:
+   ```bash
+   pip install -r requirements.txt
+   python main.py --server
+   ```
+3. In the bottom **Ports** tab, click the **Globe icon (🌐)** next to port **`8000`**.
 
 ---
 

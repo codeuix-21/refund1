@@ -73,7 +73,8 @@ The fastest way to test the project without installing Python, Node.js, or Git o
 
 1. Click the **[Open in GitHub Codespaces](https://codespaces.new/codeuix-21/refund1)** button at the top of this repository.
 2. GitHub will boot an isolated cloud container, automatically install all dependencies, and launch both the backend and frontend.
-3. Click **"Open in Browser"** on port `5173` when prompted to start chatting with the agent!
+3. just type in terminal - pip install -r requirements.txt
+                            python main.py --server and the server will be live
 
 ---
 

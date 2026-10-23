@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+pydantic
+pytest
+requests>=2.32.0
+httpx
+httpx2

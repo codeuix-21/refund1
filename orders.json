@@ -1,0 +1,327 @@
+[
+  {
+    "order_id": "ORD-123",
+    "product_name": "Nike Running Shoes",
+    "brand": "Nike",
+    "aliases": [
+      "nike",
+      "running shoes",
+      "nike running shoes"
+    ],
+    "price": 8999,
+    "currency": "INR",
+    "delivery_date": "2026-10-16",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-123",
+    "source_url": "mock://orders/ORD-123"
+  },
+  {
+    "order_id": "ORD-124",
+    "product_name": "Adidas Sneakers",
+    "brand": "Adidas",
+    "aliases": [
+      "adidas",
+      "sneakers",
+      "adidas sneakers"
+    ],
+    "price": 6499,
+    "currency": "INR",
+    "delivery_date": "2026-10-21",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-124",
+    "source_url": "mock://orders/ORD-124"
+  },
+  {
+    "order_id": "ORD-125",
+    "product_name": "Puma Running Shoes",
+    "brand": "Puma",
+    "aliases": [
+      "puma",
+      "puma running shoes"
+    ],
+    "price": 5999,
+    "currency": "INR",
+    "delivery_date": "2026-09-07",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-125",
+    "source_url": "mock://orders/ORD-125"
+  },
+  {
+    "order_id": "ORD-126",
+    "product_name": "Sports Socks",
+    "brand": "Generic",
+    "aliases": [
+      "socks",
+      "sports socks"
+    ],
+    "price": 499,
+    "currency": "INR",
+    "delivery_date": "2026-10-18",
+    "policy_tag": "NON_RETURNABLE_HYGIENE",
+    "source_id": "MOCK-ORDER-126",
+    "source_url": "mock://orders/ORD-126"
+  },
+  {
+    "order_id": "ORD-127",
+    "product_name": "Nike Casual Shoes",
+    "brand": "Nike",
+    "aliases": [
+      "nike",
+      "casual shoes",
+      "nike casual shoes"
+    ],
+    "price": 7999,
+    "currency": "INR",
+    "delivery_date": "2026-10-20",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-127",
+    "source_url": "mock://orders/ORD-127"
+  },
+  {
+    "order_id": "ORD-128",
+    "product_name": "Samsung Galaxy Smartphone",
+    "brand": "Samsung",
+    "aliases": [
+      "samsung",
+      "galaxy phone",
+      "smartphone",
+      "samsung phone"
+    ],
+    "price": 24999,
+    "currency": "INR",
+    "delivery_date": "2026-10-17",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-128",
+    "source_url": "mock://orders/ORD-128"
+  },
+  {
+    "order_id": "ORD-129",
+    "product_name": "Sony Wireless Headphones",
+    "brand": "Sony",
+    "aliases": [
+      "sony",
+      "headphones",
+      "wireless headphones",
+      "sony headphones"
+    ],
+    "price": 5990,
+    "currency": "INR",
+    "delivery_date": "2026-10-22",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-129",
+    "source_url": "mock://orders/ORD-129"
+  },
+  {
+    "order_id": "ORD-130",
+    "product_name": "Dell Laptop",
+    "brand": "Dell",
+    "aliases": [
+      "dell",
+      "laptop",
+      "dell laptop"
+    ],
+    "price": 62999,
+    "currency": "INR",
+    "delivery_date": "2026-10-14",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-130",
+    "source_url": "mock://orders/ORD-130"
+  },
+  {
+    "order_id": "ORD-131",
+    "product_name": "Levi's Denim Jeans",
+    "brand": "Levi's",
+    "aliases": [
+      "levis",
+      "jeans",
+      "denim jeans",
+      "levis jeans"
+    ],
+    "price": 2999,
+    "currency": "INR",
+    "delivery_date": "2026-10-19",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-131",
+    "source_url": "mock://orders/ORD-131"
+  },
+  {
+    "order_id": "ORD-132",
+    "product_name": "Cotton T-Shirt",
+    "brand": "Roadster",
+    "aliases": [
+      "roadster",
+      "t shirt",
+      "tshirt",
+      "cotton shirt"
+    ],
+    "price": 799,
+    "currency": "INR",
+    "delivery_date": "2026-10-23",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-132",
+    "source_url": "mock://orders/ORD-132"
+  },
+  {
+    "order_id": "ORD-133",
+    "product_name": "Leather Wallet",
+    "brand": "Wildhorn",
+    "aliases": [
+      "wildhorn",
+      "wallet",
+      "leather wallet"
+    ],
+    "price": 1199,
+    "currency": "INR",
+    "delivery_date": "2026-10-15",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-133",
+    "source_url": "mock://orders/ORD-133"
+  },
+  {
+    "order_id": "ORD-134",
+    "product_name": "Perfume Spray",
+    "brand": "Wild Stone",
+    "aliases": [
+      "wild stone",
+      "perfume",
+      "perfume spray"
+    ],
+    "price": 699,
+    "currency": "INR",
+    "delivery_date": "2026-10-22",
+    "policy_tag": "NON_RETURNABLE_HYGIENE",
+    "source_id": "MOCK-ORDER-134",
+    "source_url": "mock://orders/ORD-134"
+  },
+  {
+    "order_id": "ORD-135",
+    "product_name": "Electric Toothbrush",
+    "brand": "Oral-B",
+    "aliases": [
+      "oral b",
+      "oral-b",
+      "toothbrush",
+      "electric toothbrush"
+    ],
+    "price": 2499,
+    "currency": "INR",
+    "delivery_date": "2026-10-20",
+    "policy_tag": "NON_RETURNABLE_HYGIENE",
+    "source_id": "MOCK-ORDER-135",
+    "source_url": "mock://orders/ORD-135"
+  },
+  {
+    "order_id": "ORD-136",
+    "product_name": "Bluetooth Speaker",
+    "brand": "JBL",
+    "aliases": [
+      "jbl",
+      "speaker",
+      "bluetooth speaker"
+    ],
+    "price": 3499,
+    "currency": "INR",
+    "delivery_date": "2026-09-26",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-136",
+    "source_url": "mock://orders/ORD-136"
+  },
+  {
+    "order_id": "ORD-137",
+    "product_name": "Travel Backpack",
+    "brand": "American Tourister",
+    "aliases": [
+      "american tourister",
+      "backpack",
+      "travel bag",
+      "rucksack"
+    ],
+    "price": 2199,
+    "currency": "INR",
+    "delivery_date": "2026-10-18",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-137",
+    "source_url": "mock://orders/ORD-137"
+  },
+  {
+    "order_id": "ORD-138",
+    "product_name": "Wrist Watch",
+    "brand": "Casio",
+    "aliases": [
+      "casio",
+      "watch",
+      "wrist watch"
+    ],
+    "price": 4595,
+    "currency": "INR",
+    "delivery_date": "2026-10-07",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-138",
+    "source_url": "mock://orders/ORD-138"
+  },
+  {
+    "order_id": "ORD-139",
+    "product_name": "Yoga Mat",
+    "brand": "Boldfit",
+    "aliases": [
+      "boldfit",
+      "yoga mat",
+      "exercise mat"
+    ],
+    "price": 899,
+    "currency": "INR",
+    "delivery_date": "2026-10-21",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-139",
+    "source_url": "mock://orders/ORD-139"
+  },
+  {
+    "order_id": "ORD-140",
+    "product_name": "Office Chair",
+    "brand": "Green Soul",
+    "aliases": [
+      "green soul",
+      "office chair",
+      "desk chair"
+    ],
+    "price": 8499,
+    "currency": "INR",
+    "delivery_date": "2026-10-01",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-140",
+    "source_url": "mock://orders/ORD-140"
+  },
+  {
+    "order_id": "ORD-141",
+    "product_name": "Mixer Grinder",
+    "brand": "Prestige",
+    "aliases": [
+      "prestige",
+      "mixer",
+      "mixer grinder"
+    ],
+    "price": 3299,
+    "currency": "INR",
+    "delivery_date": "2026-10-16",
+    "policy_tag": "14_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-141",
+    "source_url": "mock://orders/ORD-141"
+  },
+  {
+    "order_id": "ORD-142",
+    "product_name": "Bed Sheet Set",
+    "brand": "Spaces",
+    "aliases": [
+      "spaces",
+      "bed sheet",
+      "bedsheet",
+      "bed sheet set"
+    ],
+    "price": 1599,
+    "currency": "INR",
+    "delivery_date": "2026-10-22",
+    "policy_tag": "7_DAYS_RETURNABLE",
+    "source_id": "MOCK-ORDER-142",
+    "source_url": "mock://orders/ORD-142"
+  }
+]

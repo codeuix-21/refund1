@@ -1,0 +1,22 @@
+{
+  "name": "Return & Refund Chaser",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "forwardPorts": [5173, 8000],
+  "portsAttributes": {
+    "5173": {
+      "label": "Web UI (Return & Refund Assistant)",
+      "onAutoForward": "openBrowser"
+    },
+    "8000": {
+      "label": "FastAPI Backend API",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt && cd frontend && npm install",
+  "postStartCommand": "nohup python main.py --server > /tmp/backend.log 2>&1 & (cd frontend && nohup npm run dev -- --host 0.0.0.0 > /tmp/frontend.log 2>&1 &)"
+}

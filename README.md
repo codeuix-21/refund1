@@ -136,16 +136,53 @@ npm run dev
 
 ---
 
-### ☁️ Method 4: Cloud Run via GitHub Codespaces
+---
 
-If you are evaluating on a machine without Python installed:
-1. Open the repository in **[GitHub Codespaces](https://codespaces.new/codeuix-21/refund1)**.
-2. In the Codespaces terminal, run:
-   ```bash
-   pip install -r requirements.txt
-   python main.py --server
-   ```
-3. In the bottom **Ports** tab, click the **Globe icon (🌐)** next to port **`8000`**.
+### 🌐 Method 4: 1-Click Free Cloud Deployment (Live URL — Zero Install & No Codespaces)
+
+To give evaluators, judges, or clients a direct URL to test the app in their browser **without running any code or opening GitHub Codespaces**:
+
+#### Option A: Deploy to Render (Recommended — 100% Free)
+1. Fork or push this repository to GitHub.
+2. Sign in to [Render.com](https://render.com) (free account).
+3. Click **New +** $\rightarrow$ **Web Service** $\rightarrow$ select your GitHub repo.
+4. Render will auto-detect settings, or configure:
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn server:app --host 0.0.0.0 --port $PORT`
+5. Click **Deploy Web Service**. You receive a live URL: `https://your-app.onrender.com`.
+
+*(Pre-configured blueprint file `render.yaml` and `Procfile` are already included in the repository!)*
+
+#### Option B: Deploy to Hugging Face Spaces (100% Free 24/7 Hosting)
+1. Go to [Hugging Face Spaces](https://huggingface.co/spaces) and click **Create new Space**.
+2. Select **Docker** (Blank) as SDK.
+3. Connect or push this repository. Hugging Face will automatically build from the included `Dockerfile` and serve your live application.
+
+---
+
+### 🐳 Method 5: 1-Command Docker Deployment (Runs Everywhere with Zero Setup)
+
+If you have Docker installed, you do not need Python or any packages on your machine:
+
+```bash
+# Build and run with Docker Compose:
+docker compose up
+
+# Or run directly via Docker:
+docker build -t refund-chaser .
+docker run -p 8000:8000 refund-chaser
+```
+Open **`http://localhost:8000`** in your browser.
+
+---
+
+### 🖱️ Method 6: 1-Click Desktop Launcher (`run.bat` / `run.sh`)
+
+For local evaluation without typing commands or managing virtual environments:
+
+- **Windows**: Simply double-click **`run.bat`**. It automatically detects Python, creates `.venv`, installs dependencies, launches the server, and opens your default browser at `http://localhost:8000`.
+- **macOS / Linux**: Run `chmod +x run.sh && ./run.sh`.
 
 ---
 

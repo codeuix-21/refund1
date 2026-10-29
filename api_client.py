@@ -20,6 +20,48 @@ def is_ollama_available(base_url=OLLAMA_BASE_URL, timeout=3):
         return False
 
 
+def ensure_ollama_daemon(base_url=OLLAMA_BASE_URL, timeout=3):
+    """
+    Check if Ollama is running; if not, attempt to start it in the background if installed.
+    Returns True if Ollama is reachable, False otherwise.
+    """
+    if is_ollama_available(base_url, timeout=1):
+        return True
+
+    import os
+    import shutil
+    import subprocess
+    import time
+    from pathlib import Path
+
+    ollama_bin = shutil.which("ollama")
+    if not ollama_bin:
+        local_app_data = os.environ.get("LOCALAPPDATA", "")
+        candidate = Path(local_app_data) / "Programs" / "Ollama" / "ollama.exe"
+        if candidate.exists():
+            ollama_bin = str(candidate)
+
+    if ollama_bin:
+        try:
+            creationflags = 0
+            if os.name == "nt":
+                creationflags = subprocess.CREATE_NEW_PROCESS_GROUP | getattr(subprocess, "DETACHED_PROCESS", 0x00000008)
+            subprocess.Popen(
+                [ollama_bin, "serve"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                creationflags=creationflags
+            )
+            for _ in range(8):
+                time.sleep(0.5)
+                if is_ollama_available(base_url, timeout=1):
+                    return True
+        except Exception:
+            pass
+
+    return False
+
+
 def chat_completion(
     messages,
     model=DEFAULT_MODEL,

@@ -41,10 +41,33 @@ def test_find_by_category():
 
 
 def test_find_with_date_filter():
-    orders = load_orders()
-    # Find ORD-124's delivery date and set reference_date to the following week
-    ord_124 = next(o for o in orders if o["order_id"] == "ORD-124")
-    del_124 = date.fromisoformat(ord_124["delivery_date"])
+    orders = [
+        {
+            "order_id": "ORD-124",
+            "product_name": "Adidas Sneakers",
+            "brand": "Adidas",
+            "aliases": ["adidas", "sneakers"],
+            "delivery_date": "2026-10-15",
+            "policy_tag": "7_DAYS_RETURNABLE",
+        },
+        {
+            "order_id": "ORD-127",
+            "product_name": "Nike Casual Shoes",
+            "brand": "Nike",
+            "aliases": ["nike", "casual shoes"],
+            "delivery_date": "2026-10-14",
+            "policy_tag": "14_DAYS_RETURNABLE",
+        },
+        {
+            "order_id": "ORD-123",
+            "product_name": "Nike Running Shoes",
+            "brand": "Nike",
+            "aliases": ["nike", "running shoes"],
+            "delivery_date": "2026-09-01",
+            "policy_tag": "14_DAYS_RETURNABLE",
+        },
+    ]
+    del_124 = date.fromisoformat("2026-10-15")
     ref_date = del_124 + timedelta(days=(7 - del_124.weekday()))
     results = find_candidates(
         "return shoes from last week",

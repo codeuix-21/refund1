@@ -53,6 +53,7 @@ from understanding import (
     classify_intent as nlu_classify_intent,
     extract_return_details,
     answer_policy_question,
+    solve_arithmetic,
     RETURN_REASONS,
     REFUND_METHODS,
     INTENT_RETURN_REQUEST,
@@ -330,10 +331,12 @@ def main():
     except Exception:
         pass
 
+    import os
+    default_port = int(os.environ.get("PORT", 8000))
     parser = argparse.ArgumentParser(description="Return & Refund Chaser - Integrated Assistant & API")
     parser.add_argument("--server", "--api", action="store_true", help="Start the FastAPI backend server")
     parser.add_argument("--host", default="0.0.0.0", help="Host for server mode (default: 0.0.0.0)")
-    parser.add_argument("--port", type=int, default=8000, help="Port for server mode (default: 8000)")
+    parser.add_argument("--port", type=int, default=default_port, help="Port for server mode (default: 8000 or $PORT)")
     parser.add_argument("--customer", default="CUS-001", help="Customer ID for CLI mode (default: CUS-001)")
     args = parser.parse_args()
 
@@ -407,6 +410,12 @@ def main():
 
         # Process message through smart conversation manager
         try:
+            # 1. Direct arithmetic solving
+            math_ans = solve_arithmetic(user_text)
+            if math_ans:
+                print(f"\nAgent: {math_ans}.\n")
+                continue
+
             # If input is open-ended chat, show thinking animation if Ollama is available
             intent = nlu_classify_intent(user_text)
             if intent == INTENT_CHAT and ollama_ready and session.state == "IDLE":

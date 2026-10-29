@@ -26,6 +26,7 @@ from understanding import (
     extract_return_details,
     answer_policy_question,
     normalize_return_reason,
+    solve_arithmetic,
     RETURN_REASONS,
     REFUND_METHODS,
     INTENT_RETURN_REQUEST,
@@ -284,6 +285,14 @@ class ConversationSession:
 
     def ask_qwen_chat(self, user_text):
         """Chat with Qwen while retaining multi-turn history."""
+        # 1. Fast direct arithmetic solving (e.g. 'what is 2+2 and solve that', '15 * 4')
+        math_solution = solve_arithmetic(user_text)
+        if math_solution:
+            reply = f"{math_solution}."
+            self.chat_history.append({"role": "user", "content": user_text})
+            self.chat_history.append({"role": "assistant", "content": reply})
+            return reply
+
         system_prompt = (
             "You are a helpful, conversational AI shopping and return assistant.\n"
             "- Answer questions directly, politely, and concisely.\n"
@@ -309,7 +318,23 @@ class ConversationSession:
             except Exception:
                 pass
 
-        # Fallback if Ollama is unavailable
+        # Smart fallback if Ollama is unavailable
+        user_lower = user_text.lower()
+        if any(w in user_lower for w in ["who are you", "what are you", "your name"]):
+            return (
+                "I am your AI Return & Refund Assistant. I can help you look up recent orders, "
+                "check return eligibility, file returns, schedule courier pickups, and track your refunds to your bank account!"
+            )
+        if any(w in user_lower for w in ["what can you do", "help", "how do you work", "commands"]):
+            return (
+                "Here are some things I can do for you:\n"
+                "• **Show orders**: View your purchases ('show my orders')\n"
+                "• **Start a return**: Request a return ('I want to return my sneakers')\n"
+                "• **Track progress**: Check refund status ('status of RET-XXXXXX')\n"
+                "• **Store policy**: Ask about return windows and hygiene rules\n"
+                "• **General questions**: Solve math and answer product questions"
+            )
+
         fallback = (
             "I'm here to assist you with checking your orders, return eligibility, "
             "and scheduling pickups. How can I help you today?"

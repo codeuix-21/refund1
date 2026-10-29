@@ -10,7 +10,7 @@
     ],
     "price": 8999,
     "currency": "INR",
-    "delivery_date": "2026-10-16",
+    "delivery_date": "2026-10-22",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-123",
     "source_url": "mock://orders/ORD-123"
@@ -26,7 +26,7 @@
     ],
     "price": 6499,
     "currency": "INR",
-    "delivery_date": "2026-10-21",
+    "delivery_date": "2026-10-27",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-124",
     "source_url": "mock://orders/ORD-124"
@@ -41,7 +41,7 @@
     ],
     "price": 5999,
     "currency": "INR",
-    "delivery_date": "2026-09-07",
+    "delivery_date": "2026-09-13",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-125",
     "source_url": "mock://orders/ORD-125"
@@ -56,7 +56,7 @@
     ],
     "price": 499,
     "currency": "INR",
-    "delivery_date": "2026-10-18",
+    "delivery_date": "2026-10-24",
     "policy_tag": "NON_RETURNABLE_HYGIENE",
     "source_id": "MOCK-ORDER-126",
     "source_url": "mock://orders/ORD-126"
@@ -72,7 +72,7 @@
     ],
     "price": 7999,
     "currency": "INR",
-    "delivery_date": "2026-10-20",
+    "delivery_date": "2026-10-26",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-127",
     "source_url": "mock://orders/ORD-127"
@@ -89,7 +89,7 @@
     ],
     "price": 24999,
     "currency": "INR",
-    "delivery_date": "2026-10-17",
+    "delivery_date": "2026-10-23",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-128",
     "source_url": "mock://orders/ORD-128"
@@ -106,7 +106,7 @@
     ],
     "price": 5990,
     "currency": "INR",
-    "delivery_date": "2026-10-22",
+    "delivery_date": "2026-10-28",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-129",
     "source_url": "mock://orders/ORD-129"
@@ -122,7 +122,7 @@
     ],
     "price": 62999,
     "currency": "INR",
-    "delivery_date": "2026-10-14",
+    "delivery_date": "2026-10-20",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-130",
     "source_url": "mock://orders/ORD-130"
@@ -139,7 +139,7 @@
     ],
     "price": 2999,
     "currency": "INR",
-    "delivery_date": "2026-10-19",
+    "delivery_date": "2026-10-25",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-131",
     "source_url": "mock://orders/ORD-131"
@@ -156,7 +156,7 @@
     ],
     "price": 799,
     "currency": "INR",
-    "delivery_date": "2026-10-23",
+    "delivery_date": "2026-10-29",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-132",
     "source_url": "mock://orders/ORD-132"
@@ -172,7 +172,7 @@
     ],
     "price": 1199,
     "currency": "INR",
-    "delivery_date": "2026-10-15",
+    "delivery_date": "2026-10-21",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-133",
     "source_url": "mock://orders/ORD-133"
@@ -188,7 +188,7 @@
     ],
     "price": 699,
     "currency": "INR",
-    "delivery_date": "2026-10-22",
+    "delivery_date": "2026-10-28",
     "policy_tag": "NON_RETURNABLE_HYGIENE",
     "source_id": "MOCK-ORDER-134",
     "source_url": "mock://orders/ORD-134"
@@ -205,7 +205,7 @@
     ],
     "price": 2499,
     "currency": "INR",
-    "delivery_date": "2026-10-20",
+    "delivery_date": "2026-10-26",
     "policy_tag": "NON_RETURNABLE_HYGIENE",
     "source_id": "MOCK-ORDER-135",
     "source_url": "mock://orders/ORD-135"
@@ -221,7 +221,7 @@
     ],
     "price": 3499,
     "currency": "INR",
-    "delivery_date": "2026-09-26",
+    "delivery_date": "2026-10-02",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-136",
     "source_url": "mock://orders/ORD-136"
@@ -238,7 +238,7 @@
     ],
     "price": 2199,
     "currency": "INR",
-    "delivery_date": "2026-10-18",
+    "delivery_date": "2026-10-24",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-137",
     "source_url": "mock://orders/ORD-137"
@@ -254,7 +254,7 @@
     ],
     "price": 4595,
     "currency": "INR",
-    "delivery_date": "2026-10-07",
+    "delivery_date": "2026-10-13",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-138",
     "source_url": "mock://orders/ORD-138"
@@ -270,7 +270,7 @@
     ],
     "price": 899,
     "currency": "INR",
-    "delivery_date": "2026-10-21",
+    "delivery_date": "2026-10-27",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-139",
     "source_url": "mock://orders/ORD-139"
@@ -286,7 +286,7 @@
     ],
     "price": 8499,
     "currency": "INR",
-    "delivery_date": "2026-10-01",
+    "delivery_date": "2026-10-07",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-140",
     "source_url": "mock://orders/ORD-140"
@@ -302,7 +302,7 @@
     ],
     "price": 3299,
     "currency": "INR",
-    "delivery_date": "2026-10-16",
+    "delivery_date": "2026-10-22",
     "policy_tag": "14_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-141",
     "source_url": "mock://orders/ORD-141"
@@ -319,7 +319,7 @@
     ],
     "price": 1599,
     "currency": "INR",
-    "delivery_date": "2026-10-22",
+    "delivery_date": "2026-10-28",
     "policy_tag": "7_DAYS_RETURNABLE",
     "source_id": "MOCK-ORDER-142",
     "source_url": "mock://orders/ORD-142"

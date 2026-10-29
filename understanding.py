@@ -4,7 +4,9 @@ Combines high-speed rule-based intent and entity recognition with Qwen LLM
 classification and reasoning for flexible customer interaction.
 """
 
+import ast
 import json
+import operator
 import re
 
 from api_client import chat_json, chat_completion, is_ollama_available
@@ -57,6 +59,81 @@ REFUND_METHODS = {
     "3": "UPI"
 }
 
+_SAFE_ARITHMETIC_OPS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.FloorDiv: operator.floordiv,
+    ast.Mod: operator.mod,
+    ast.Pow: operator.pow,
+}
+
+
+def _eval_ast_math(node):
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return node.value
+    elif isinstance(node, ast.BinOp):
+        left = _eval_ast_math(node.left)
+        right = _eval_ast_math(node.right)
+        op_type = type(node.op)
+        if op_type in _SAFE_ARITHMETIC_OPS:
+            if op_type == ast.Pow and (right > 100 or left > 1000):
+                raise ValueError("Exponent too large")
+            return _SAFE_ARITHMETIC_OPS[op_type](left, right)
+    elif isinstance(node, ast.UnaryOp):
+        val = _eval_ast_math(node.operand)
+        if isinstance(node.op, ast.USub):
+            return -val
+        if isinstance(node.op, ast.UAdd):
+            return val
+    raise ValueError("Unsupported operation")
+
+
+def solve_arithmetic(text: str) -> str | None:
+    """
+    Detects and safely evaluates basic arithmetic expressions in user input.
+    Examples:
+      'what is 2+2' -> '2 + 2 = 4'
+      'solve that: 2 + 2' -> '2 + 2 = 4'
+      'what is 15 plus 25' -> '15 + 25 = 40'
+      '100 / 4' -> '100 / 4 = 25'
+    Returns formatted string or None if no valid arithmetic found.
+    """
+    if not text or not isinstance(text, str):
+        return None
+
+    clean = text.lower().strip()
+    clean = re.sub(r"[\?\.!]+$", "", clean)
+    clean = re.sub(r"\bplus\b", "+", clean)
+    clean = re.sub(r"\bminus\b", "-", clean)
+    clean = re.sub(r"\b(times|multiplied by)\b", "*", clean)
+    clean = re.sub(r"\b(divided by|divided|over)\b", "/", clean)
+
+    # Match mathematical expression with numbers and operators (+, -, *, /, ^, %)
+    match = re.search(r"(\(?-?\d+(?:\.\d+)?(?:\s*[\+\-\*\/\^\%]\s*\(?-?\d+(?:\.\d+)?\)?)+)", clean)
+    if not match:
+        return None
+
+    expr = match.group(1).strip()
+    # Ensure there is at least one operator and at least one digit
+    if not re.search(r"[\+\-\*\/\^\%]", expr) or not re.search(r"\d", expr):
+        return None
+
+    try:
+        py_expr = expr.replace("^", "**")
+        parsed = ast.parse(py_expr, mode="eval")
+        result = _eval_ast_math(parsed.body)
+        if isinstance(result, float) and result.is_integer():
+            res_str = str(int(result))
+        elif isinstance(result, float):
+            res_str = f"{result:.4g}"
+        else:
+            res_str = str(result)
+        return f"{expr} = {res_str}"
+    except Exception:
+        return None
+
 
 def fast_intent_classify(user_text):
     """
@@ -64,6 +141,9 @@ def fast_intent_classify(user_text):
     Avoids LLM latency and misclassification for standard greetings, policy questions,
     order lookups, return commands, and status tracking.
     """
+    if solve_arithmetic(user_text):
+        return INTENT_CHAT
+
     text = normalize(user_text)
     if not text:
         return INTENT_UNCLEAR

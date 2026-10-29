@@ -1,9 +1,12 @@
 import asyncio
+import logging
 from contextlib import asynccontextmanager
 from agent.background_worker import approved_return_worker
 import re
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
+
+logger = logging.getLogger("refund_chaser")
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -54,12 +57,29 @@ async def midnight_date_sync_worker(poll_interval_seconds: float = 60.0):
 
 @asynccontextmanager
 async def lifespan(_application: FastAPI):
+    # Ensure database is initialized if missing
+    try:
+        from database.db import DB_PATH, init_db
+        if not DB_PATH.exists():
+            init_db()
+            from database.seed import seed_database
+            seed_database()
+    except Exception as e:
+        logger.warning("Database init/seed check failed: %s", e)
+
     # Ensure delivery dates are current on startup
     try:
         from database.date_sync import sync_delivery_dates
         sync_delivery_dates()
     except Exception as e:
         logger.warning("Initial date sync failed: %s", e)
+
+    # Ensure local Ollama daemon is running if installed
+    try:
+        from api_client import ensure_ollama_daemon
+        ensure_ollama_daemon()
+    except Exception as e:
+        logger.warning("Initial Ollama check failed: %s", e)
 
     # Start the background monitoring worker.
     worker_task = asyncio.create_task(

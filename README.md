@@ -1,5 +1,7 @@
 # Return & Refund Chaser
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Website-00C7B7?style=for-the-badge&logo=render&logoColor=white)](https://return-and-refund-chaser.onrender.com/)
+
 ![Tests Passing](https://img.shields.io/badge/Tests-118%20Passed-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.12%20%7C%203.14-blue)
 ![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688)
@@ -51,99 +53,21 @@ Traditional e-commerce returns are broken:
 
 ---
 
-## 🚀 How to Run & Access the Project
+## 🌐 Live Deployed Application
 
-### 🌐 Method 1: Live Cloud Deployed Web App (Direct Browser Access — Zero Setup)
+The application is deployed and ready to test directly in your browser with zero installation, setup, or Codespaces required:
 
-The application is deployed and ready to use without needing GitHub Codespaces or any local setup:
-- **Web App**: Open the live application directly in your browser.
-- **Swagger API Docs**: `/docs`
-- **Zero Configuration**: Serves the unified FastAPI backend, SQLite mock store, autonomous SLA background recovery daemon, and pre-compiled React web UI in one container.
+👉 **Live Web Application**: **[https://return-and-refund-chaser.onrender.com/](https://return-and-refund-chaser.onrender.com/)**
+- **Interactive Swagger API Docs**: [https://return-and-refund-chaser.onrender.com/docs](https://return-and-refund-chaser.onrender.com/docs)
+- **API Health Check**: [https://return-and-refund-chaser.onrender.com/health](https://return-and-refund-chaser.onrender.com/health)
 
----
-
-### 🖱️ Method 2: 1-Click Desktop Launcher (Windows & macOS/Linux)
-
-Run the entire system locally with one double-click (no manual virtual environments or CLI commands needed):
-
-- **Windows**: Double-click **`run.bat`**. It automatically detects Python, creates `.venv`, installs requirements, starts the server, and opens your default browser at `http://localhost:8000`.
-- **macOS / Linux**: Run `chmod +x run.sh && ./run.sh`.
-
----
-
-### 🥇 Method 3: Localhost Web UI Run *(Takes 60 Seconds & No Node.js Needed)*
-
-If you prefer running via terminal:
-
-```bash
-# 1. Clone repository
-git clone https://github.com/codeuix-21/refund1.git
-cd refund1
-
-# 2. Install Python dependencies
-pip install -r requirements.txt
-
-# 3. Launch unified server (FastAPI API + Pre-Built React UI)
-python main.py --server
-```
-
-Open your browser at:
-👉 **`http://localhost:8000`**
-
-- **Interactive API Docs**: `http://localhost:8000/docs`
-- **Zero Node.js Required**: The production React frontend is bundled in `frontend/dist` and served immediately on port `8000`.
-
-#### 🎯 What You Can Test in the Web UI:
+### 🎯 What You Can Test in the Live Web App:
 1. **Return Assistant (💬)**: Say *"show my orders"* or *"I want to return my Cotton T-Shirt"*. Select return reason and refund destination.
 2. **Confirm Return**: Type or click `"YES"`.
-3. **Live 5-Step Refund Timeline**: Watch milestone progression:
+3. **Live 5-Step Refund Timeline**: Watch autonomous milestone progression:
    - *1. Requested* $\rightarrow$ *2. Pickup Booked* (5s) $\rightarrow$ *3. Quality Check* (10s) $\rightarrow$ *4. Refund Initiated* (15s) $\rightarrow$ *5. Bank Credit Confirmed* (20s celebration popup 🎉).
 4. **Order History (📦)**: Search delivered items with policy tags (`DELIVERED`, `NON-RETURNABLE`).
 5. **Refund Status (💳)**: View the timestamped audit log across all completed refunds.
-
----
-
-### 🐳 Method 4: 1-Command Docker Deployment
-
-If you have Docker installed, run without configuring Python locally:
-
-```bash
-docker compose up
-```
-Open **`http://localhost:8000`** in your browser.
-
----
-
-### 🥈 Method 5: 1-Command Terminal Chat (CLI Mode)
-
-To chat with the agent directly in your command line:
-
-```bash
-python main.py
-```
-- **Active Customer**: Automatically loaded as `Aarav Sharma (CUS-001)` from `data/app.db`.
-- **Sample Commands**:
-  - `"show my orders"`
-  - `"I want to return my Cotton T-Shirt"`
-  - `"yes"`
-  - `"track my return"` or `"status of RET-XXXXXX"`
-
----
-
-### 🥉 Method 6: Full Developer Mode *(With Vite Hot-Reloading)*
-
-If you wish to modify frontend source files with live hot reloading:
-
-```bash
-# Terminal 1: Backend API Server
-python main.py --server
-
-# Terminal 2: Frontend React Dev Server
-cd frontend
-npm install
-npm run dev
-```
-- Open in browser: **`http://localhost:5173`**
 
 ---
 
